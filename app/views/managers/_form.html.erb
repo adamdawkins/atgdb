@@ -1,0 +1,21 @@
+<% semantic_form_for @manager do |form| %>
+<% if @manager.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@manager.errors.count, "error") %> prohibited this manager from being saved:</h2>
+
+    <ul>
+    <% @manager.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+    <%= form.inputs do %>
+			<%= form.input :first_name %>
+			<%= form.input :last_name %>
+			<%= form.input :teams, :label => "Teams", :label_method => :label %>
+    	<%= form.input :content %>
+			<%= form.buttons %>
+		<% end %>  
+<% end %>

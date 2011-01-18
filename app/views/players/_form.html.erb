@@ -1,0 +1,22 @@
+<% semantic_form_for @player do |form| %>
+<% if @player.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</h2>
+
+    <ul>
+    <% @player.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+    <%= form.inputs do %>
+			<%= form.input :first_name %>
+			<%= form.input :last_name %>
+			<%= form.input :position %>
+			<%= form.input :teams, :label => "Teams", :label_method => :label %>
+    	<%= form.input :content %>
+			<%= form.buttons %>
+		<% end %>  
+<% end %>

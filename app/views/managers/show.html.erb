@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @manager.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @manager.last_name %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @manager.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_manager_path(@manager) %> |
+<%= link_to 'Back', managers_path %>

@@ -1,0 +1,12 @@
+class Player < ActiveRecord::Base
+  has_and_belongs_to_many :teams
+  has_many :managers, :through => :teams
+  validates_presence_of :first_name, :message => "can't be blank"
+  validates_presence_of :last_name, :message => "can't be blank"
+  validates_uniqueness_of :last_name, :message => "must be unique", :scope => :first_name
+  
+  def name
+    "#{first_name} #{last_name}"
+  end
+end
+
