@@ -1,91 +1,41 @@
 class RatingsController < ApplicationController
-  # GET /ratings
-  # GET /ratings.xml
+  before_filter :find_rateable, :only => [:index, :create]
+  respond_to :html
+ 
   def index
-    @rateable = find_rateable
     @ratings = @rateable.ratings
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @ratings }
-    end
+    respond_with(@ratings)
   end
 
-  # GET /ratings/1
-  # GET /ratings/1.xml
   def show
     @rating = Rating.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @rating }
-    end
+    respond_with(@rating)
   end
 
-  # GET /ratings/new
-  # GET /ratings/new.xml
+  
   def new
     @rating = Rating.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @rating }
-    end
+    respond_with(@rating)
   end
 
-  # GET /ratings/1/edit
   def edit
     @rating = Rating.find(params[:id])
   end
 
-  # POST /ratings
-  # POST /ratings.xml
   def create
-    @rateable = find_rateable
     @rating = @rateable.ratings.build(params[:rating])
-
-    respond_to do |format|
-      if @rating.save
-        flash[:notice] = "Successfully created comment."
-        redirect_to :id => nil
-      else
-        render :action => 'new'
-      end     
+    if @rating.save
+      flash[:notice] = 'rating was successfully added.'
     end
+    respond_with(@rateable)
   end
 
-  # PUT /ratings/1
-  # PUT /ratings/1.xml
-  def update
-    @rating = Rating.find(params[:id])
+  private  
 
-    respond_to do |format|
-      if @rating.update_attributes(params[:rating])
-        format.html { redirect_to(@rating, :notice => 'Rating was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @rating.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /ratings/1
-  # DELETE /ratings/1.xml
-  def destroy
-    @rating = Rating.find(params[:id])
-    @rating.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(ratings_url) }
-      format.xml  { head :ok }
-    end
-  end
-  
   def find_rateable
     params.each do |name, value|
       if name =~ /(.+)_id$/
-        return $1.classify.constantize.find(value)
+        @rateable = $1.classify.constantize.find(value)
       end
     end
     nil

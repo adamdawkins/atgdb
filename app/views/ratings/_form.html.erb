@@ -1,29 +1,20 @@
-<%= form_for(@rating) do |f| %>
-  <% if @rating.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
+<% form_for [rateable, Rating.new] do |f| %>
+<% unless @rateable.nil? %>
+<% if @rating.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
 
-      <ul>
-      <% @rating.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
+    <ul>
+    <% @rating.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% end %>
+  <p>
     <%= f.label :rating_value %><br />
     <%= f.text_field :rating_value %>
-  </div>
-  <div class="field">
-    <%= f.label :rateable_id %><br />
-    <%= f.text_field :rateable_id %>
-  </div>
-  <div class="field">
-    <%= f.label :rating_type %><br />
-    <%= f.text_field :rating_type %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  </p>
+  <p><%= f.submit "Submit" %></p>
 <% end %>

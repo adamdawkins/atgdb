@@ -1,3 +1,4 @@
+<% unless @ratings.blank? %>
 <div id="ratings">
 <% for rating in @ratings %>
   <div class="rating">
@@ -5,7 +6,7 @@
   </div>
 <% end %>
 </div>
-
+<% end %>
 <h2>New Rating</h2>
 
 <% form_for [@rateable, Rating.new] do |f| %>

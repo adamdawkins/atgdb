@@ -20,6 +20,18 @@
   <%= @player.content %>
 </p>
 
+<% unless @player.ratings.blank? %>
+<div id="ratings">
+<% for rating in @player.ratings %>
+  <div class="rating">
+    <%= rating.rating_value %>
+  </div>
+<% end %>
+</div>
+<% end %>
+
+<%= render 'ratings/new', :rateable => @player %>
+
 
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>
