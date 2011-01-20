@@ -10,43 +10,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110118204336) do
-
-  create_table "managers", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "managers_teams", :id => false, :force => true do |t|
-    t.integer "manager_id"
-    t.integer "team_id"
-  end
-
-  create_table "players", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "position"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "players_teams", :id => false, :force => true do |t|
-    t.integer "player_id"
-    t.integer "team_id"
-  end
-
-  create_table "teams", :force => true do |t|
-    t.string   "name"
-    t.string   "city"
-    t.string   "country"
-    t.string   "year"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 0) do
 
 end

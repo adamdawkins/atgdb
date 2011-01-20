@@ -1,6 +1,7 @@
 class Manager < ActiveRecord::Base
   has_and_belongs_to_many :teams
   has_many :players, :through => :teams
+  has_many :ratings, :as => :rateable
   validates_presence_of :first_name, :message => "can't be blank"
   validates_presence_of :last_name, :message => "can't be blank"
   validates_uniqueness_of :last_name, :message => "must be unique", :scope => :first_name

@@ -7,6 +7,11 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+	<div id="header">
+		<%= link_to("Players", :players) %>
+		<%= link_to("Managers", :managers) %>
+		<%= link_to("Teams", :teams) %>
+	</div>
 
 <%= yield %>
 

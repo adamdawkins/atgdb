@@ -1,5 +1,4 @@
 class CreateManagersTeams < ActiveRecord::Migration
-  
     def self.up
       create_table :managers_teams, :id => false do |t|
         t.integer :manager_id

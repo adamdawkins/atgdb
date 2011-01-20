@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rating_value: 1
+  rateable_id: 1
+  rating_type: MyString
+
+two:
+  rating_value: 1
+  rateable_id: 1
+  rating_type: MyString

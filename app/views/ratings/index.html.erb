@@ -1,0 +1,17 @@
+<div id="ratings">
+<% for rating in @ratings %>
+  <div class="rating">
+    <%= rating.rating_value %>
+  </div>
+<% end %>
+</div>
+
+<h2>New Rating</h2>
+
+<% form_for [@rateable, Rating.new] do |f| %>
+  <p>
+    <%= f.label :rating_value %><br />
+    <%= f.text_area :rating_value %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
