@@ -9,5 +9,13 @@ class Player < ActiveRecord::Base
   def name
     "#{first_name} #{last_name}"
   end
+  
+  def rating # mean rating
+    ratings.collect(&:rating_value).sum.to_f / ratings.size
+  end
+  
+  def weighted_rating
+    (rating * ratings.size + Rating.mean * MINIMUM_NUMBER_OF_RATINGS) / (ratings.size + MINIMUM_NUMBER_OF_RATINGS)
+  end
 end
 
