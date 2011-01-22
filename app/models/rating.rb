@@ -3,4 +3,10 @@ class Rating < ActiveRecord::Base
   
   validates_numericality_of :rating_value, :message => "is not a number"
   validates_inclusion_of :rating_value, :in => 1..10,  :message => "extension %s is not included in the list"
+
+  
+  def self.mean
+     all.collect(&:rating_value).sum.to_f / all.size
+  end
+
 end
