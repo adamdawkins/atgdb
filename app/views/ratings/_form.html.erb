@@ -1,4 +1,4 @@
-<% form_for [rateable, Rating.new] do |f| %>
+<%= form_for [rateable, Rating.new] do |f| %>
 <% unless @rateable.nil? %>
 <% if @rating.errors.any? %>
   <div id="error_explanation">

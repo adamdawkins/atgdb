@@ -24,7 +24,7 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(params[:player])
     if @player.save
-      flash[:notice => 'Player was successfully created.']
+      flash[:notice] = 'Player created successfully'
     end
     respond_with(@player)
   end

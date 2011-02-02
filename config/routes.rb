@@ -1,8 +1,9 @@
-Atgdb::Application.routes.draw do |map|
-
-  map.resources :managers, :has_many => :ratings
-  map.resources :players, :has_many => :ratings
-  map.resources :teams, :has_many => :ratings
+Atgdb::Application.routes.draw do
+  resources :managers 
+  resources :players do
+    resource :ratings
+  end
+  resources :teams
   
   root :to => "teams#index"
   # The priority is based upon order of creation:
