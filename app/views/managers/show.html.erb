@@ -1,20 +1,44 @@
 <p id="notice"><%= notice %></p>
+<div class="entry-options">
+	<%= link_to 'Edit', edit_manager_path(@manager) %> |
+	<%= link_to 'Back', managers_path %>
+</div>
+<div id="managers" class="parent-show">
+	<p>
+	  <b>First name:</b>
+	  <%= @manager.first_name %>
+	</p>
 
-<p>
-  <b>First name:</b>
-  <%= @manager.first_name %>
-</p>
+	<p>
+	  <b>Last name:</b>
+	  <%= @manager.last_name %>
+	</p>
 
-<p>
-  <b>Last name:</b>
-  <%= @manager.last_name %>
-</p>
+	<p>
+	  <b>Content:</b>
+	  <%= @manager.content %>
+	</p>
+</div>
+<div id="associations">
+	<div class="child-show">
+		<h2>Teams</h2>
+		<ul>
+		<% if @manager.teams.any? %>
+			<% @manager.teams.each do |team| %>
+				<li class="player"><%= link_to team %></li>
+			<% end %>
+		<% end %>
+		</ul>
+	</div>
+</div>
+<% unless @manager.ratings.blank? %>
+<div id="ratings">
+<% for rating in @manager.ratings %>
+  <span>
+    <%= rating.rating_value %>
+  </span>
+<% end %>
+</div>
+<% end %>
 
-<p>
-  <b>Content:</b>
-  <%= @manager.content %>
-</p>
-
-
-<%= link_to 'Edit', edit_manager_path(@manager) %> |
-<%= link_to 'Back', managers_path %>
+<%= render 'ratings/new', :rateable => @manager %>

@@ -1,42 +1,64 @@
 <p id="notice"><%= notice %></p>
+<div class="entry-options">
+	<%= link_to 'Edit', edit_team_path(@team) %> |
+	<%= link_to 'Back', teams_path %>
+</div>
+<div id="teams" class="parent-show">
+	<p>
+	  <b>Name:</b>
+	  <%= @team.name %>
+	</p>
 
-<p>
-  <b>Name:</b>
-  <%= @team.name %>
-</p>
+	<p>
+	  <b>City:</b>
+	  <%= @team.city %>
+	</p>
 
-<p>
-  <b>City:</b>
-  <%= @team.city %>
-</p>
+	<p>
+	  <b>Country:</b>
+	  <%= @team.country %>
+	</p>
 
-<p>
-  <b>Country:</b>
-  <%= @team.country %>
-</p>
+	<p>
+	  <b>Year:</b>
+	  <%= @team.year %>
+	</p>
 
-<p>
-  <b>Year:</b>
-  <%= @team.year %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @team.content %>
-</p>
-<h2>Managers</h2>
-<% if @team.managers.any? %>
-	<% @team.managers.each do |manager| %>
-		<li class="manager"><%= link_to manager %></li>
-	<% end %>
+	<p>
+	  <b>Content:</b>
+	  <%= @team.content %>
+	</p>
+</div>
+<div id="associations">
+	<div class="child-show">
+		<h2>Managers</h2>
+		<ul>
+		<% if @team.managers.any? %>
+			<% @team.managers.each do |manager| %>
+				<li class="manager"><%= link_to manager %></li>
+			<% end %>
+		<% end %>
+		</ul>
+	</div>
+	<div class="child-show">
+		<h2>Players</h2>
+		<ul>
+		<% if @team.players.any? %>
+			<% @team.players.each do |player| %>
+				<li class="player"><%= link_to player %></li>
+			<% end %>
+		<% end %>
+		</ul>
+	</div>
+</div>
+<% unless @team.ratings.blank? %>
+<div id="ratings">
+<% for rating in @team.ratings %>
+  <span>
+    <%= rating.rating_value %>
+  </span>
 <% end %>
-<h2>Players</h2>
-<% if @team.players.any? %>
-	<% @team.players.each do |player| %>
-		<li class="player"><%= link_to player %></li>
-	<% end %>
+</div>
 <% end %>
 
-
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<%= render 'ratings/new', :rateable => @team %>
