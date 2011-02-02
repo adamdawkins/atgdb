@@ -7,13 +7,20 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-	<div id="header">
-		<%= link_to("Players", :players) %>
-		<%= link_to("Managers", :managers) %>
-		<%= link_to("Teams", :teams) %>
+	<div id="wrapper">
+		<div id="header">
+			<h1>ATGDB</h1>
+			<div id="navigation">
+				<ul>
+					<li><%= link_to("Players", :players) %></li>
+					<li><%= link_to("Managers", :managers) %></li>
+					<li><%= link_to("Teams", :teams) %></li>
+				</ul>
+			</div>
+		</div>
+		<div id="content">
+			<%= yield %>
+		</div>
 	</div>
-
-<%= yield %>
-
 </body>
 </html>

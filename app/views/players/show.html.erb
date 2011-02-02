@@ -1,29 +1,49 @@
 <p id="notice"><%= notice %></p>
-<h1> <%= @player.first_name %> <%= @player.last_name %></h1>
+<div class="entry-options">
+	<%= link_to 'Edit', edit_player_path(@player) %> |
+	<%= link_to 'Back', players_path %>
+</div>
+<div id="players" class="parent-show">
+	<p>
+	  <b>First name:</b>
+	  <%= @player.first_name %>
+	</p>
 
+	<p>
+	  <b>Last name:</b>
+	  <%= @player.last_name %>
+	</p>
 
-<p>
-  <b>Position:</b>
-  <%= @player.position %>
-</p>
+	<p>
+	  <b>Position:</b>
+	  <%= @player.position %>
+	</p>
 
-<p>
-  <b>Content:</b>
-  <%= @player.content %>
-</p>
-
+	<p>
+	  <b>Content:</b>
+	  <%= @player.content %>
+	</p>
+</div>
+<div id="associations">
+	<div class="child-show">
+		<h2>Teams</h2>
+		<ul>
+		<% if @player.teams.any? %>
+			<% @player.teams.each do |team| %>
+				<li class="player"><%= link_to team %></li>
+			<% end %>
+		<% end %>
+		</ul>
+	</div>
+</div>
 <% unless @player.ratings.blank? %>
 <div id="ratings">
 <% for rating in @player.ratings %>
-  <div class="rating">
+  <span>
     <%= rating.rating_value %>
-  </div>
+  </span>
 <% end %>
 </div>
 <% end %>
 
 <%= render 'ratings/new', :rateable => @player %>
-
-
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
