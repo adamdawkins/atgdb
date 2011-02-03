@@ -1,9 +1,13 @@
 Atgdb::Application.routes.draw do
-  resources :managers 
+  resources :managers do
+    resource :ratings
+  end
   resources :players do
     resource :ratings
   end
-  resources :teams
+  resources :teams do
+    resource :ratings
+  end
   
   root :to => "teams#index"
   # The priority is based upon order of creation:

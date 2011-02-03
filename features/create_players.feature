@@ -19,7 +19,6 @@ Scenario: Create Unique Player
   And I should see "Player created successfully"
 
 Scenario: Create A Player With The Same Name As An Existing Player
-Scenario: A player with the same name has already been created
 Given the following player records
   | first_name | last_name |
   | Christiano | Ronaldo   |

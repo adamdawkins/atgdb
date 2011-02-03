@@ -2,6 +2,7 @@ class Player < ActiveRecord::Base
   has_and_belongs_to_many :teams
   has_many :managers, :through => :teams
   has_many :ratings, :as => :rateable
+  validates_presence_of :first_name, :on => :create, :message => "can't be blank"
   validates_presence_of :last_name, :message => "can't be blank"
  
   def name
