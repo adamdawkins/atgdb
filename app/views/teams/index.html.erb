@@ -3,26 +3,28 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>City</th>
-    <th>Country</th>
     <th>Year</th>
-    <th>Content</th>
+	<th>Rating</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @teams.each do |team| %>
-  <tr>
-    <td><%= team.name %></td>
-    <td><%= team.city %></td>
-    <td><%= team.country %></td>
-    <td><%= team.year %></td>
-    <td><%= team.content %></td>
-    <td><%= link_to 'Show', team %></td>
-    <td><%= link_to 'Edit', edit_team_path(team) %></td>
-    <td><%= link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% @teams.sort_by(&:weighted_rating).reverse.each do |team| %>
+  	<tr>
+    	<td><%= team.name %></td>
+	    <td><%= team.year %></td>
+		<td>
+		<% unless team.ratings.blank? %>
+			<%= team.weighted_rating %>
+		<% end %>
+	    </td>
+		<td><%= link_to 'Show', team %></td>
+		<% if current_user %>
+		    <td><%= link_to 'Edit', edit_team_path(team) %></td>
+		    <td><%= link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete %></td>
+  		<% end %>
+	</tr>
 <% end %>
 </table>
 

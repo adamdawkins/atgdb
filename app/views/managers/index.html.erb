@@ -4,21 +4,27 @@
   <tr>
     <th>First name</th>
     <th>Last name</th>
-    <th>Content</th>
+    <th>Rating</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @managers.each do |manager| %>
-  <tr>
-    <td><%= manager.first_name %></td>
-    <td><%= manager.last_name %></td>
-    <td><%= manager.content %></td>
-    <td><%= link_to 'Show', manager %></td>
-    <td><%= link_to 'Edit', edit_manager_path(manager) %></td>
-    <td><%= link_to 'Destroy', manager, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% @managers.sort_by(&:weighted_rating).reverse.each do |manager| %>
+  	<tr>
+    	<td><%= manager.first_name %></td>
+	    <td><%= manager.last_name %></td>
+		<td>
+		<% unless manager.ratings.blank? %>
+			<%= manager.weighted_rating %>
+		<% end %>
+	    </td>
+	    <td><%= link_to 'Show', manager %></td>
+		<% if current_user %>
+	    	<td><%= link_to 'Edit', edit_manager_path(manager) %></td>
+	    	<td><%= link_to 'Destroy', manager, :confirm => 'Are you sure?', :method => :delete %></td>
+  		<% end %>
+	</tr>
 <% end %>
 </table>
 
