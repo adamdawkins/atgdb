@@ -112,3 +112,6 @@ form#new_rating {margin:10px 0;overflow:hidden;}
 form#new_rating p {float:left;}
 
 div#associations {overflow:hidden;}
+
+div#user_nav {position: absolute;right:61px;top:-27px;}
+div#user_nav a {text-decoration:none;font-family:'DroidSerifBold';}
