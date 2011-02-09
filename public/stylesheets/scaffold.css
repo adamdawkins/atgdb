@@ -86,29 +86,34 @@ div.field, div.actions {
 body {background:#3d3d3d;color:#3d3d3d;margin:0 auto;font-family:'DroidSerifRegular';}
 a {color:#000;text-transform:uppercase;}
 #wrapper {width:957px;margin:0 auto;background:#d9d9d9;padding:15px 0;box-shadow:0px 0px 10px #818181;-webkit-box-shadow: 0px 0px 10px #818181;-moz-box-shadow:0px 0px 10px #818181;}
-#wrapper #header {height:93px;/*height:315px;background:url(../images/header.jpg) no-repeat;*/margin-top:92px;position:relative;}
-#wrapper #header h1 {/*background:url(../images/logo.png) no-repeat;*/width:278px;height:132px;text-indent:-9999px;position:absolute;left:338px;top:-68px;}
+#wrapper #header {height:93px;height:245px;background:url(../images/header.jpg) no-repeat;margin-top:92px;position:relative;}
+#wrapper #header h1 {background:url(../images/logo.png) no-repeat;width:278px;height:132px;text-indent:-9999px;position:absolute;left:338px;top:-68px;}
 #wrapper #header #navigation {position:absolute;top:-27px;left:61px;}
 #wrapper #header #navigation ul li {display:inline-block;}
 #wrapper #header #navigation ul li a {text-decoration:none;font-family:'DroidSerifBold';}
-#content {padding:0 15px;}
+#content {padding:0 15px;overflow:hidden;}
 #content h2 {text-transform:lowercase;font-size:1.2em;color:#fb8d22;}
 #content h3 {text-transform:lowercase;font-size:1.1em;}
 #content table {margin:10px 0;}
 #content table tr td, #content table tr th {padding:5px;font-size:0.8em;}
 #content table tr th {font-weight:normal;font-style:italic;text-transform:uppercase;text-align:left;}
 
-#content .parent-show {}
+#content .parent-show {float:left;}
 #content .parent-show p {margin:10px 0;}
 #content .parent-show b {font-weight:bold;}
 #content .child-show {margin:10px 0;width:200px;float:left;}
 #content .child-show li a {font-size:0.8em;margin:0 0 0 10px;}
 
 #content .entry-options a {font-size:0.8em;text-transform:lowercase;}
+#content form {margin:10px 0;}
 
 #ratings {border-top:1px solid;padding:10px 0 0 0;}
-.rating-new {margin:10px 0;padding:10px 0 0 0;}
+.rating-new {margin:10px 0;padding:10px 0 0 0;clear:both;border-top:1px solid #666;}
 form#new_rating {margin:10px 0;overflow:hidden;}
 form#new_rating p {float:left;}
+p.rating {color:#fb8d22;font-size:1.5em;}
 
-div#associations {overflow:hidden;}
+div#associations {overflow:hidden;float:right;}
+
+div#user_nav {position: absolute;right:61px;top:-27px;}
+div#user_nav a {text-decoration:none;font-family:'DroidSerifBold';}

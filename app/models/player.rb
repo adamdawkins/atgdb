@@ -14,7 +14,11 @@ class Player < ActiveRecord::Base
   end
   
   def weighted_rating
-    (rating * ratings.size + Rating.mean * MINIMUM_NUMBER_OF_RATINGS) / (ratings.size + MINIMUM_NUMBER_OF_RATINGS)
+    if rating > 0
+      ((rating * ratings.size + Rating.mean * MINIMUM_NUMBER_OF_RATINGS) / (ratings.size + MINIMUM_NUMBER_OF_RATINGS)).round(1)
+    else
+      0
+    end
   end
 end
 

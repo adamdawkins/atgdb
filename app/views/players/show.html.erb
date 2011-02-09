@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 <div class="entry-options">
-	<%= link_to 'Edit', edit_player_path(@player) %> |
+	<% if current_user %>
+		<%= link_to 'Edit', edit_player_path(@player) %> |
+	<% end %>
 	<%= link_to 'Back', players_path %>
 </div>
 <div id="players" class="parent-show">
@@ -15,6 +17,12 @@
 	  <b>Content:</b>
 	  <%= @player.content %>
 	</p>
+	<p class="rating">
+	  <b>Rating:</b>
+	  <% unless @player.ratings.blank? %>
+		<%= @player.weighted_rating %>
+	  <% end %>
+	</p>	
 </div>
 <div id="associations">
 	<div class="child-show">
@@ -28,14 +36,5 @@
 		</ul>
 	</div>
 </div>
-<% unless @player.ratings.blank? %>
-<div id="ratings">
-<% for rating in @player.ratings %>
-  <span>
-    <%= rating.rating_value %>
-  </span>
-<% end %>
-</div>
-<% end %>
 
 <%= render 'ratings/new', :rateable => @player %>

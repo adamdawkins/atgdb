@@ -5,22 +5,28 @@
     <th>First name</th>
     <th>Last name</th>
     <th>Position</th>
-    <th>Content</th>
+    <th>Rating</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @players.each do |player| %>
-  <tr>
-    <td><%= player.first_name %></td>
-    <td><%= player.last_name %></td>
-    <td><%= player.position %></td>
-    <td><%= player.content %></td>
-    <td><%= link_to 'Show', player %></td>
-    <td><%= link_to 'Edit', edit_player_path(player) %></td>
-    <td><%= link_to 'Destroy', player, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% @players.sort_by(&:weighted_rating).reverse.each do |player| %>
+  	<tr>
+    	<td><%= player.first_name %></td>
+	    <td><%= player.last_name %></td>
+	    <td><%= player.position %></td>
+		<td>
+		<% unless player.ratings.blank? %>
+			<%= player.weighted_rating %>
+		<% end %>
+	    </td>
+		<td><%= link_to 'Show', player %></td>
+		<% if current_user %>
+	    	<td><%= link_to 'Edit', edit_player_path(player) %></td>
+		    <td><%= link_to 'Destroy', player, :confirm => 'Are you sure?', :method => :delete %></td>
+  		<% end %>
+	</tr>
 <% end %>
 </table>
 
