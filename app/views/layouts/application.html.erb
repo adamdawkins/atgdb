@@ -7,29 +7,33 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-	<div id="wrapper">
 		<div id="header">
-			<h1>ATGDB</h1>
-			<div id="navigation">
-				<ul>
-					<li><%= link_to("Players", :players) %></li> | 
-					<li><%= link_to("Managers", :managers) %></li> | 
-					<li><%= link_to("Teams", :teams) %></li>
-				</ul>
+			<div class="container">
+				<img src="/images/logo.png" id="logo" />
+				<div id="navigation">
+					<ul>
+						<li><%= link_to("Players", :players) %></li>
+						<li><%= link_to("Managers", :managers) %></li>
+						<li><%= link_to("Teams", :teams) %></li>
+					</ul>
+				</div>
+				<div id="user_nav">
+				  <% if current_user %>
+				    <%= link_to "View Profile", current_user %> |
+				    <%= link_to "Logout", logout_path %>
+				  <% else %>
+				    <%= link_to "Register", new_user_path %> |
+				    <%= link_to "Login", login_path %>
+				  <% end %>
+				</div>			
 			</div>
-			<div id="user_nav">
-			  <% if current_user %>
-			    <%= link_to "View Profile", current_user %> |
-			    <%= link_to "Logout", logout_path %>
-			  <% else %>
-			    <%= link_to "Register", new_user_path %> |
-			    <%= link_to "Login", login_path %>
-			  <% end %>
-			</div>			
 		</div>
 		<div id="content">
-			<%= yield %>
+			<div class="container">
+					<div class="content-nudge">
+						<%= yield %>
+					</div>
+			</div>
 		</div>
-	</div>
 </body>
 </html>
