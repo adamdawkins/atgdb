@@ -125,10 +125,8 @@ a {color:#000;}
 .rating-new {margin:10px 0;padding:10px 0 0 0;clear:both;border-top:1px solid #666;}
 form#new_rating {margin:10px 0;overflow:hidden;}
 form#new_rating p {float:left;}
-p.rating {color:#fb8d22;font-size:1.5em;}
-#rating-values {clear:both;}
-#rating-values ul {overflow:hidden;}
-#rating-values li {float:left;width:28px;height:27px;}
+.rating {color:#fb8d22;font-size:1.5em;float:right;display:block;margin:10px 0 0 40px;}
+#rating-values {float:left;height:39px;width:200px;clear:both;background:#fbe400;background:-moz-linear-gradient(top, #fbe400 0%, #f3b300 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#fbe400), color-stop(100%,#f3b300));background:-webkit-linear-gradient(top, #fbe400 0%,#f3b300 100%);}
 
 div#associations {overflow:hidden;float:right;}
 

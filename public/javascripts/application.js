@@ -1,2 +1,11 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(document).ready(function(){
+	initRatings();
+});
+
+function initRatings(){
+	var rating = $('.rating').html();
+	rating = parseFloat(rating);
+	rating = rating * 10;
+	rating = rating * 4;	
+	$('#rating-values').css({'width': rating + 'px'});
+}

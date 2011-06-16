@@ -20,12 +20,14 @@
 	  <b>Content:</b>
 	  <%= @manager.content %>
 	</p>
-	<p class="rating">
-	  <b>Rating:</b>
+	<div id="rating-values">
+		<img src="/images/rating_new_bg.png" />																	
+	</div>
+	<span class="rating">
 	  <% unless @manager.ratings.blank? %>
 		<%= @manager.weighted_rating %>
 	  <% end %>
-	</p>
+	</span>
 </div>
 <div id="associations">
 	<div class="child-show">

@@ -17,12 +17,14 @@
 	  <b>Content:</b>
 	  <%= @player.content %>
 	</p>
-	<p class="rating">
-	  <b>Rating:</b>
-	  <% unless @player.ratings.blank? %>
-		<%= @player.weighted_rating %>
-	  <% end %>
-	</p>	
+	<div id="rating-values">
+		<img src="/images/rating_new_bg.png" />																	
+	</div>
+	<span class="rating">
+			<% unless @player.ratings.blank? %>
+			<%= @player.weighted_rating %>
+	  	<% end %>
+	</span>	
 </div>
 <div id="associations">
 	<div class="child-show">
