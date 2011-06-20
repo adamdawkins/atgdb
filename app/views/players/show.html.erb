@@ -6,25 +6,24 @@
 	<%= link_to 'Back', players_path %>
 </div>
 <div id="players" class="parent-show">
-	<h1>  <%= @player.first_name %>  <%= @player.last_name %></h1>
-
-	<p>
-	  <b>Position:</b>
-	  <%= @player.position %>
-	</p>
-
-	<p>
-	  <b>Content:</b>
-	  <%= @player.content %>
-	</p>
-	<div id="rating-values">
-		<img src="/images/rating_new_bg.png" />																	
+	<h1><%= @player.first_name %>  <%= @player.last_name %></h1>
+	<div id="player-rating">
+		<div id="rating-values">
+			<img src="/images/rating_new_bg.png" />																	
+		</div>
+		<span class="rating">
+				<% unless @player.ratings.blank? %>
+				<%= @player.weighted_rating %>
+	  		<% end %>
+		</span>	
 	</div>
-	<span class="rating">
-			<% unless @player.ratings.blank? %>
-			<%= @player.weighted_rating %>
-	  	<% end %>
-	</span>	
+	<div id="details">
+		<strong>Position:</strong>
+	  <%= @player.position %>
+	</div>
+	<div id="player-content">
+		<%= @player.content %>
+	</div>
 </div>
 <div id="associations">
 	<div class="child-show">

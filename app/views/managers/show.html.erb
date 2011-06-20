@@ -6,28 +6,20 @@
 	<%= link_to 'Back', managers_path %>
 </div>
 <div id="managers" class="parent-show">
-	<p>
-	  <b>First name:</b>
-	  <%= @manager.first_name %>
-	</p>
-
-	<p>
-	  <b>Last name:</b>
-	  <%= @manager.last_name %>
-	</p>
-
-	<p>
-	  <b>Content:</b>
-	  <%= @manager.content %>
-	</p>
-	<div id="rating-values">
-		<img src="/images/rating_new_bg.png" />																	
+	<h1><%= @manager.first_name %>  <%= @manager.last_name %></h1>
+	<div id="manager-rating">
+		<div id="rating-values">
+			<img src="/images/rating_new_bg.png" />																	
+		</div>
+		<span class="rating">
+				<% unless @manager.ratings.blank? %>
+				<%= @manager.weighted_rating %>
+	  		<% end %>
+		</span>	
 	</div>
-	<span class="rating">
-	  <% unless @manager.ratings.blank? %>
-		<%= @manager.weighted_rating %>
-	  <% end %>
-	</span>
+	<div id="manager-content">
+		<%= @manager.content %>
+	</div>
 </div>
 <div id="associations">
 	<div class="child-show">
