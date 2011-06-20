@@ -15,6 +15,19 @@ div.field, div.actions {margin-bottom:10px;}
 #error_explanation h2 {text-align:left;font-weight:bold;padding:5px 5px 5px 15px;font-size:12px;margin:-7px;margin-bottom:0px;background-color:#c00;color:#fff;}
 #error_explanation ul li {font-size:12px;list-style:square;}
 
+/* Font Styles */
+
+@font-face {
+    font-family: 'ChunkFiveRegular';
+    src: url('Chunkfive-webfont.eot');
+    src: url('Chunkfive-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Chunkfive-webfont.woff') format('woff'),
+         url('Chunkfive-webfont.ttf') format('truetype'),
+         url('Chunkfive-webfont.svg#ChunkFiveRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Site Styles */
 
 body {background:url(../images/bg_grass.jpg);color:#3d3d3d;margin:0 auto;font-family:arial;}
@@ -35,11 +48,25 @@ a {color:#000;}
 #navigation ul li a {text-decoration:none;text-transform:lowercase;}
 #content {padding:0 15px;overflow:hidden;}
 #content .content-nudge {
-	background:#fff;padding:30px;border-radius:5px;width:900px;margin:0 0 8px 8px;
+	background:#fff;padding:30px;border-top-left-radius:5px;border-top-right-radius:5px;width:900px;margin:0 0 0 8px;
 	-webkit-box-shadow: 0px 0px 10px 0px #000000;
 	-moz-box-shadow: 0px 0px 10px 0px #000000;
 	box-shadow: 0px 0px 10px 0px #000000;
 }
+
+#footer {
+	padding:10px 30px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;width:900px;margin:0 0 8px 8px;
+	-webkit-box-shadow: 0px 5px 5px 0px #000000;
+	-moz-box-shadow: 0px 5px 5px 0px #000000;
+	box-shadow: 0px 5px 5px 0px #000000;	
+	background: #45484d;
+	background: -moz-linear-gradient(top, #45484d 0%, #000000 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000));
+	background: -webkit-linear-gradient(top, #45484d 0%,#000000 100%);	
+}
+
+#footer a {color:#fff;font-size:0.7em;text-decoration:none;}
+
 #content h2 {text-transform:lowercase;font-size:1.2em;color:#fb8d22;}
 #content h3 {text-transform:lowercase;font-size:1.1em;}
 #content table {margin:10px 0;}
@@ -52,7 +79,6 @@ a {color:#000;}
 #content .child-show {margin:10px 0;width:200px;float:left;}
 #content .child-show li a {font-size:0.8em;margin:0 0 0 10px;}
 
-#content .entry-options a {font-size:0.8em;text-transform:lowercase;}
 #content form {margin:10px 0;}
 
 #ratings {border-top:1px solid;padding:10px 0 0 0;}
@@ -63,6 +89,8 @@ form#new_rating p {float:left;}
 #rating-values {float:left;height:39px;width:200px;clear:both;background:#fbe400;background:-moz-linear-gradient(top, #fbe400 0%, #f3b300 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#fbe400), color-stop(100%,#f3b300));background:-webkit-linear-gradient(top, #fbe400 0%,#f3b300 100%);}
 
 div#associations {overflow:hidden;float:right;}
+.entry-options {background:#cecece;padding:5px;border:1px solid #999;margin-bottom:15px;}
+.entry-options a {text-transform:uppercase;font-size:0.8em;}
 
 #user_nav {float:right;font-size:0.8em;text-transform:uppercase;padding:11px 13px 0 0;color:#fff;}
 #user_nav a {text-decoration:none;color:#fff;}
@@ -75,7 +103,7 @@ div#associations {overflow:hidden;float:right;}
 #social-media li {height:33px;margin-bottom:1px;}
 
 #players, #managers, #teams {width:500px;}
-#players h1, #managers h1, #teams h1 {margin:10px 0;text-transform:uppercase;}
+#players h1, #managers h1, #teams h1 {margin:10px 0;text-transform:uppercase;font-family:'ChunkFiveRegular';font-weight:normal;text-shadow: 0 0 2px #000000;}
 #details {margin:30px 0 0 0;border-top:1px dashed #cecece;border-bottom:1px dashed #cecece;padding:5px 0;font-size:0.8em;text-transform:capitalize;}
 #player-content, #manager-content, #team-content {margin:20px 0;}
 #player-rating, #manager-rating, #team-rating {overflow:hidden;}
